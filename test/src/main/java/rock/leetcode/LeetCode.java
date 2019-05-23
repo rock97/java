@@ -39,6 +39,20 @@ public class LeetCode {
 
     }
 
+    public boolean IncrementalSubsequence(int[] nums){
+        int sum = 1;
+        for (int i = 1; i < nums.length; i++) {
+            if(nums[0] < nums[i]){
+                sum ++ ;
+                nums[0] = nums[i];
+            }
+            if(sum >= 3){
+                return true;
+            }
+        }
+        return false;
+    }
+
     /**
      * https://www.cnblogs.com/Revenent-Blog/p/7587654.html
      * @param matrix

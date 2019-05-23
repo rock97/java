@@ -1,4 +1,4 @@
-package rock.acm;
+package rock.java;
 
 import java.io.File;
 import java.util.UUID;
@@ -11,7 +11,7 @@ import java.util.UUID;
  */
 public class FileTest {
     public static void main(String[] args) {
-        String oldDir =  "J:\\迅雷下载\\wewe";
+        String oldDir =  "J:\\232";
         File file = new File(oldDir);
         renameFile(file,oldDir);
     }
