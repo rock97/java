@@ -39,6 +39,19 @@ public class LeetCode {
 
     }
 
+    public int minimumTotal2(List<List<Integer>> triangle){
+        int sums[] = new int[100];
+        int j = 0;
+        int min = 99999999;
+        int length = 0;
+        for (int i = 0; i < triangle.size(); i++) {
+            length+=triangle.get(i).size();
+            for (int i1 = 0; i1 < triangle.get(i).size(); i1++) {
+
+            }
+        }
+        return min;
+    }
     public boolean IncrementalSubsequence(int[] nums){
         int sum = 1;
         for (int i = 1; i < nums.length; i++) {
@@ -275,10 +288,8 @@ public class LeetCode {
                     result[i][j] = result[i-1][j+1]+1;
                     if(max < result[i][j]){
                         max = result[i][j];
-
                             index_i = i;
                             index_j = j;
-
                     }
                 }
             }

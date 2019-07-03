@@ -18,8 +18,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>6</source>
-                    <target>6</target>
+                    <source>8</source>
+                    <target>8</target>
                 </configuration>
             </plugin>
         </plugins>
@@ -65,6 +65,12 @@
                     <artifactId>jasper-compiler-jdt</artifactId>
                     <version>5.5.9</version>
                     <scope>compile</scope>
+                </dependency>
+                <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+                <dependency>
+                    <groupId>com.alibaba</groupId>
+                    <artifactId>fastjson</artifactId>
+                    <version>1.2.58</version>
                 </dependency>
             </dependencies>
 

@@ -1,5 +1,7 @@
 package rock.concurrent;
 
+import java.util.concurrent.locks.ReentrantLock;
+
 /**
  * @Description:
  * @Author: lizhihua16
@@ -8,8 +10,13 @@ package rock.concurrent;
  */
 public class LongAdderTest {
     public static void main(String[] args) {
-      String s1 = new String("123");
-      String s2 = new String("123");
-        System.out.println(s1 ==s2);
+        ReentrantLock reentrantLock = new ReentrantLock();
+        ReentrantLock reentrantLock1 = new ReentrantLock();
+        reentrantLock.tryLock();
+        reentrantLock1.tryLock();
+        reentrantLock.tryLock();
+        System.out.println("tryLock");
+        reentrantLock.unlock();
+        reentrantLock1.unlock();
     }
 }
