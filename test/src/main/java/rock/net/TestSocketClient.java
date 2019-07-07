@@ -1,6 +1,7 @@
 package rock.net;
 
 import java.io.IOException;
+import java.io.OutputStream;
 import java.net.Socket;
 
 /**
@@ -19,5 +20,13 @@ public class TestSocketClient {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public void read(int port) throws IOException, InterruptedException {
+        Socket socket = new Socket("localhost",port);
+        OutputStream os = socket.getOutputStream();
+        Thread.sleep(1000*1);
+        os.write("lizhihua  erer  er".getBytes());
+        os.close();
+        socket.close();
     }
 }
