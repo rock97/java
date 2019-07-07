@@ -1,5 +1,8 @@
 package rock.net;
 
+import java.io.IOException;
+import java.net.ServerSocket;
+
 /**
  * @Description:
  * @Author: lizhihua16
@@ -7,7 +10,15 @@ package rock.net;
  * @Create: 2019-07-03 23:17
  */
 public class TestSocketServer {
-    public static void main(String[] args) {
-
+    public void accept(){
+        try {
+            ServerSocket serverSocket = new ServerSocket(8088);
+            System.out.println(" 阻塞开始 " + System.currentTimeMillis());
+            serverSocket.accept();
+            System.out.println(" 阻塞结束 " + System.currentTimeMillis());
+            serverSocket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
