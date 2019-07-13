@@ -6,8 +6,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.nio.channels.ServerSocketChannel;
 
 /**
  * @Description:
@@ -68,5 +70,25 @@ public class TestSocketServer {
         System.out.println("read 阻塞end" + JSON.toJSONString(bytes));
         is.close();
         socket.close();
+    }
+    public void nioServer(int port) throws IOException {
+        char[] bytes = new char[1024];
+        ServerSocketChannel socketChannel = ServerSocketChannel.open();
+        ServerSocket serverSocket = socketChannel.socket();
+        serverSocket.bind(new InetSocketAddress("localhost",port));
+        Socket socket = serverSocket.accept();
+        InputStream inputStream= socket.getInputStream();
+        InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+        System.out.println("read 阻塞开始");
+        int leng = inputStreamReader.read(bytes);
+        while (leng!=-1){
+            System.out.println(JSON.toJSONString(bytes));
+            leng = inputStreamReader.read(bytes);
+        }
+        System.out.println("read 阻塞end" + JSON.toJSONString(bytes));
+        inputStreamReader.close();
+        inputStream.close();
+        socket.close();
+        serverSocket.close();
     }
 }

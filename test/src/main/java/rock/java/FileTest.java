@@ -11,7 +11,7 @@ import java.util.UUID;
  */
 public class FileTest {
     public static void main(String[] args) {
-        String oldDir =  "J:\\232";
+        String oldDir =  "F:\\迅雷下载\\af11239dd04";
         File file = new File(oldDir);
         renameFile(file,oldDir);
     }
