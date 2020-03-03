@@ -12,9 +12,11 @@ import java.util.UUID;
  */
 public class RockAgent {
     public static void main(String[] args) {
-        String oldDir =  "F:\\迅雷下载\\aa";
+        /*String oldDir =  "F:\\迅雷下载\\aa";
         File file = new File(oldDir);
-        renameFile(file,oldDir);
+        renameFile(file,oldDir);*/
+
+        System.out.println("format.substring(0,7)+\"-01\" = " + "2020-12-00".substring(0, 7) + "-01");
     }
     private static  void renameFile(File file,String dir){
         if(file.isDirectory()){

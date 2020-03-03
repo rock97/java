@@ -1,13 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="test:war exploded">
     <output-path>$PROJECT_DIR$/test/target/java</output-path>
-    <properties id="maven-jee-properties">
-      <options>
-        <exploded>true</exploded>
-        <module>test</module>
-        <packaging>war</packaging>
-      </options>
-    </properties>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
@@ -29,7 +22,12 @@
           <element id="library" level="project" name="Maven: oro:oro:2.0.8" />
           <element id="library" level="project" name="Maven: commons-lang:commons-lang:2.1" />
           <element id="library" level="project" name="Maven: jstl:jstl:1.2" />
-          <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.2.47" />
+          <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.2.58" />
+          <element id="library" level="project" name="Maven: javax.servlet:jsp-api:2.0" />
+          <element id="library" level="project" name="Maven: javax.servlet:servlet-api:2.4" />
+          <element id="library" level="project" name="Maven: tomcat:jasper-compiler:5.5.9" />
+          <element id="library" level="project" name="Maven: tomcat:jasper-runtime:5.5.9" />
+          <element id="library" level="project" name="Maven: tomcat:jasper-compiler-jdt:5.5.9" />
         </element>
       </element>
       <element id="directory" name="META-INF">

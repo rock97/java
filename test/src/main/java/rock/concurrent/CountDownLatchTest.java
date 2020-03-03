@@ -1,5 +1,6 @@
 package rock.concurrent;
 
+import java.util.Random;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -11,30 +12,43 @@ import java.util.concurrent.Executors;
  * @Create: 2019-06-14 22:53
  */
 public class CountDownLatchTest {
-    private final static int threadCount = 200;
+    private final static int threadCount = 2;
     public static void main(String[] args) throws InterruptedException {
         ExecutorService service = Executors.newCachedThreadPool();
         final CountDownLatch countDownLatch = new CountDownLatch(threadCount);
-        for (int i = 0; i < threadCount; i++) {
-            final int threadNum = i;
-            System.out.println("threadNum = " + threadNum);
+
             service.execute(()->{
                 try {
-                    test(threadNum);
+                    test("A",100000);
                 } catch (InterruptedException e) {
 
                 }finally {
                     countDownLatch.countDown();
                 }
             });
-        }
+
+        service.execute(()->{
+            try {
+                test("B",10000);
+            } catch (InterruptedException e) {
+
+            }finally {
+                countDownLatch.countDown();
+            }
+        });
+
         countDownLatch.await();
         service.shutdown();
         System.out.println("finish");
     }
-    private static void  test(int a) throws InterruptedException {
-        Thread.sleep(1000);
-        System.out.println(a);
-        Thread.sleep(1000);
+    private static void  test(String name, int v) throws InterruptedException {
+        for (int j = 0; j <10000;j++) {
+            Thread.sleep(1);
+            Random random = new Random();
+            long ik = random.nextInt(1000);
+            long  i= random.nextInt(10);
+            v += i*ik;
+            System.out.println(name + " = " + v);
+        }
     }
 }

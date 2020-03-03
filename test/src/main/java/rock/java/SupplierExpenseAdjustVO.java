@@ -344,8 +344,11 @@ public class SupplierExpenseAdjustVO {
         if (calendarUpdatedAt.before(calendarK)) {
             return this.getValidDate();
         } else {
+            int dayk = calendarUpdatedAt.get(Calendar.DAY_OF_MONTH);
+            if(dayk<=24){
+                calendarUpdatedAt.set(Calendar.MONTH,calendarUpdatedAt.get(Calendar.MONTH)-1);
+            }
             calendarUpdatedAt.set(Calendar.DAY_OF_MONTH, 25);//设置成本月的25日
-            calendarUpdatedAt.set(Calendar.MONTH,calendarK.get(Calendar.MONTH));
             return calendarUpdatedAt.getTime();
         }
     }
@@ -357,12 +360,15 @@ public class SupplierExpenseAdjustVO {
         SupplierExpenseAdjustVO adjustVO = new SupplierExpenseAdjustVO();
         Calendar calendarK = Calendar.getInstance();
         Calendar calendarT = Calendar.getInstance();
-        calendarT.set(2019,11,29);
 
-        calendarK.set(2019,10,29);
+        //账单日期
+        calendarK.set(2019,9,27);
+        //审核日期
+        calendarT.set(2019,11,27);
+
         adjustVO.setUpdatedAt(calendarT.getTime());
         adjustVO.setValidDate(calendarK.getTime());
         adjustVO.setStatus(21);
-        System.out.println("adjustVO = " + sdf.format(adjustVO.computeAscriptionDate()));
+        System.out.println("归属日期 = " + sdf.format(adjustVO.computeAscriptionDate()));
     }
 }
