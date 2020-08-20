@@ -21,12 +21,16 @@ public class TestSocketClient {
             e.printStackTrace();
         }
     }
-    public void read(int port) throws IOException, InterruptedException {
+    public static void read(int port) throws IOException, InterruptedException {
         Socket socket = new Socket("localhost",port);
         OutputStream os = socket.getOutputStream();
         Thread.sleep(1000*1);
         os.write("lizhihua  erer  er".getBytes());
         os.close();
         socket.close();
+    }
+
+    public static void main(String[] args) throws IOException, InterruptedException {
+        read(8080);
     }
 }

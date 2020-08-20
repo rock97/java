@@ -71,7 +71,7 @@ public class TestSocketServer {
         is.close();
         socket.close();
     }
-    public void nioServer(int port) throws IOException {
+    public static void nioServer(int port) throws IOException {
         char[] bytes = new char[1024];
         ServerSocketChannel socketChannel = ServerSocketChannel.open();
         ServerSocket serverSocket = socketChannel.socket();
@@ -90,5 +90,13 @@ public class TestSocketServer {
         inputStream.close();
         socket.close();
         serverSocket.close();
+    }
+
+    public static void main(String[] args) {
+        try {
+            nioServer(8080);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
